@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON ÉCLAT — 메종 에클라</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #b8966e;
+      --gold-light: #d4b896;
+      --gold-dark: #8a6d4e;
+      --cream: #faf7f2;
+      --dark: #1a1612;
+      --gray: #6b6560;
+      --border: rgba(184, 150, 110, 0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Serif KR', serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 4rem;
+      background: rgba(26, 22, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      padding: 0.65rem 1.6rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(26,22,18,0.85) 0%, rgba(26,22,18,0.4) 60%, rgba(26,22,18,0.75) 100%),
+        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80') center/cover no-repeat;
+      transform: scale(1.05);
+      animation: zoomOut 8s ease forwards;
+    }
+
+    @keyframes zoomOut {
+      from { transform: scale(1.08); }
+      to   { transform: scale(1); }
+    }
+
+    .hero-ornament {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(184,150,110,0.18);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-ornament::before {
+      content: '';
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(184,150,110,0.1);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+      animation: fadeUp 1.2s ease 0.4s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 3rem;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      padding: 1rem 2.4rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      background: transparent;
+      padding: 1rem 2.4rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: border-color 0.3s, color 0.3s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+      50%       { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold-dark);
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.6rem 0;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-images {
+      position: relative;
+      height: 520px;
+    }
+
+    .about-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 72%;
+      height: 85%;
+      object-fit: cover;
+      filter: brightness(0.92);
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 52%;
+      height: 55%;
+      object-fit: cover;
+      border: 6px solid var(--cream);
+      filter: brightness(0.9);
+    }
+
+    .about-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-15%, -50%);
+      width: 110px;
+      height: 110px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      border: 3px solid var(--cream);
+    }
+
+    .about-badge span:first-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .about-badge span:last-child {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--dark);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      line-height: 1.95;
+      color: var(--gray);
+      font-weight: 300;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--gold-dark);
+      display: block;
+    }
+
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      text-transform: uppercase;
+      word-break: keep-all;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--dark);
+      color: #fff;
+      padding: 7rem 4rem;
+    }
+
+    .services-header {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 4.5rem;
+    }
+
+    .services-header .section-label { justify-content: center; }
+    .services-header .section-label::before { display: none; }
+    .services-header .section-title { color: #fff; }
+    .services-header p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.9;
+      letter-spacing: 0.05em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .service-card {
+      background: var(--dark);
+      padding: 3rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover { background: #221e1a; }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 1.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(184,150,110,0.3);
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .pricing-header { margin-bottom: 3.5rem; }
+
+    .pricing-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      background: none;
+      border: none;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .tab-btn.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+    .tab-btn:hover:not(.active) { color: var(--dark); }
+
+    .price-panel { display: none; }
+    .price-panel.active { display: block; }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+    }
+
+    .price-row:last-child { border-bottom: none; }
+
+    .price-info { flex: 1; }
+
+    .price-name {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .price-detail {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+
+    .price-dots {
+      flex: 1;
+      border-bottom: 1px dashed rgba(107,101,96,0.3);
+      margin: 0 1rem 4px;
+    }
+
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--gold-dark);
+      white-space: nowrap;
+    }
+
+    .price-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      color: var(--gray);
+      background: rgba(184,150,110,0.08);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.6rem;
+      margin-top: 2rem;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      padding: 4rem 0 7rem;
+      background: #f4f0ea;
+    }
+
+    .gallery-header {
+      text-align: center;
+      padding: 0 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      padding: 0 4rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-item:nth-child(1) { grid-row: span 2; aspect-ratio: auto; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.93) saturate(0.9);
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); filter: brightness(1) saturate(1); }
+
+    /* ── LOCATION / CONTACT ── */
+    #contact {
+      background: var(--dark);
+      color: #fff;
+      padding: 7rem 4rem;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-info .section-title { color: #fff; }
+
+    .contact-info p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      margin-bottom: 2.4rem;
+    }
+
+    .info-list { list-style: none; margin-bottom: 2.5rem; }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
+    }
+
+    .info-list li:last-child { border-bottom: none; }
+
+    .info-icon {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .info-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 220px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(184,150,110,0.03) 20px,
+        rgba(184,150,110,0.03) 21px
+      );
+    }
+
+    .map-pin {
+      font-size: 2.5rem;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── BOOKING FORM ── */
+    .booking-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .form-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: #1a1612; }
+
+    .form-textarea { resize: vertical; min-height: 90px; }
+
+    .form-submit {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      border: none;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0e0c0a;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 2rem; }
+
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-images { height: 360px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(1) { grid-row: span 1; aspect-ratio: 3/4; }
+
+      .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.8rem; }
+      .pc-only { display: none; }
+      .about-stats { gap: 0.8rem; }
+      .stat-num { font-size: 1.6rem; }
+      .stat-label { font-size: 0.55rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Maison Éclat</a>
+    <ul class="nav-links">
+      <li><a href="#about">살롱 소개</a></li>
+      <li><a href="#services">서비스</a></li>
+      <li><a href="#pricing">가격표</a></li>
+      <li><a href="#contact">예약 문의</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">예약하기</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-ornament"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Luxury Hair Salon · Seoul</div>
+      <h1 class="hero-title">
+        당신만의<br class="pc-only"> <em>아름다움을</em><br>완성하다
+      </h1>
+      <p class="hero-subtitle">Maison Éclat — 메종 에클라</p>
+      <p class="hero-desc">
+        파리에서 영감을 받은 감각으로, 한 분 한 분의 개성을 섬세하게 담아냅니다.<br>
+        최상의 제품과 전문 스타일리스트가 만드는 특별한 경험.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">예약 상담하기</a>
+        <a href="#services" class="btn-outline">서비스 보기</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section style="padding: 7rem 4rem;">
+    <div id="about">
+      <div class="about-images">
+        <img class="about-img-main"
+          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80"
+          alt="살롱 내부" />
+        <img class="about-img-accent"
+          src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600&q=80"
+          alt="헤어 스타일링" />
+        <div class="about-badge">
+          <span>12</span>
+          <span>Years<br>of Art</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">아름다움은<br><em>디테일에서</em> 시작됩니다</h2>
+        <div class="divider"></div>
+        <p>
+          메종 에클라는 2012년 청담동에 문을 열었습니다. '빛나다'는 뜻의 프랑스어 에클라처럼,
+          모든 고객이 자신만의 빛을 발할 수 있도록 개인의 개성과 라이프스타일에 맞춘
+          맞춤형 헤어 스타일을 제안합니다.
+        </p>
+        <p>
+          파리 L'Oréal Technique 수료 및 영국 Vidal Sassoon 아카데미 출신의
+          스타일리스트들이 최신 트렌드와 클래식한 기법을 조화롭게 녹여냅니다.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">4,800+</span>
+            <span class="stat-label">고객</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">8명</span>
+            <span class="stat-label">전문 스타일리스트</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">재방문율</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header">
+      <div class="section-label">Services</div>
+      <h2 class="section-title" style="color:#fff;">정성을 담은<br><em>프리미엄</em> 서비스</h2>
+      <p>고객 한 분 한 분의 얼굴형, 모발 상태, 라이프스타일을 세심하게 분석하여 최적의 솔루션을 제공합니다.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">✂</span>
+        <div class="service-name">커트 & 스타일링</div>
+        <p class="service-desc">얼굴형과 두상에 맞춘 정밀 커트. 퍼스널 컬러 분석을 바탕으로 가장 어울리는 실루엣을 완성합니다.</p>
+        <span class="service-tag">Cut & Style</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">◈</span>
+        <div class="service-name">컬러링 & 하이라이트</div>
+        <p class="service-desc">Wella, Kerastase 등 프리미엄 제품을 사용한 발색 시술. 자연스러운 그라데이션부터 과감한 컬러까지.</p>
+        <span class="service-tag">Color & Highlight</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">◉</span>
+        <div class="service-name">펌 & 매직</div>
+        <p class="service-desc">손상 없이 오래가는 웨이브. 시스테인 펌부터 볼륨매직, 히피펌까지 모발 상태에 맞는 최선을 선택합니다.</p>
+        <span class="service-tag">Perm & Magic</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">◇</span>
+        <div class="service-name">트리트먼트 & 두피 케어</div>
+        <p class="service-desc">Kerastase 프리미엄 케어. 두피 분석기로 정확한 상태를 진단하고 맞춤 트리트먼트를 처방합니다.</p>
+        <span class="service-tag">Treatment</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">◆</span>
+        <div class="service-name">브라이덜 & 업스타일</div>
+        <p class="service-desc">특별한 날을 더욱 빛나게. 웨딩, 성년식, 파티 등 다양한 업스타일과 헤어 세팅을 제공합니다.</p>
+        <span class="service-tag">Bridal & Upstyle</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">○</span>
+        <div class="service-name">VIP 패키지</div>
+        <p class="service-desc">커트부터 컬러, 트리트먼트, 두피 스파까지 원스톱으로. 샴페인과 함께하는 프라이빗 살롱 경험.</p>
+        <span class="service-tag">VIP Package</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" style="padding: 7rem 4rem;">
+    <div class="pricing-header">
+      <div class="section-label">Price List</div>
+      <h2 class="section-title">투명한 <em>가격표</em></h2>
+      <p style="font-family:'Montserrat',sans-serif; font-size:0.78rem; color:var(--gray); line-height:1.9; max-width:480px; margin-top:0.8rem;">
+        모든 시술에는 기본 샴푸, 두피 마사지, 드라이 서비스가 포함됩니다.
+      </p>
+    </div>
+
+    <div class="pricing-tabs">
+      <button class="tab-btn active" onclick="switchTab('cut')">커트 & 스타일</button>
+      <button class="tab-btn" onclick="switchTab('color')">컬러링</button>
+      <button class="tab-btn" onclick="switchTab('perm')">펌</button>
+      <button class="tab-btn" onclick="switchTab('care')">케어</button>
+    </div>
+
+    <div id="tab-cut" class="price-panel active">
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">여성 커트</div>
+          <div class="price-detail">샴푸 + 블로우드라이 포함</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">60,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">남성 커트</div>
+          <div class="price-detail">샴푸 + 스타일링 포함</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">45,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">디렉터 커트</div>
+          <div class="price-detail">수석 스타일리스트 지명 시</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">100,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">업스타일 / 웨딩 세팅</div>
+          <div class="price-detail">헤어 피스 별도</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">150,000~</div>
+      </div>
+    </div>
+
+    <div id="tab-color" class="price-panel">
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">전체 염색</div>
+          <div class="price-detail">뿌리 ~ 끝 / Wella 컬러</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">90,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">탈색 (전체)</div>
+          <div class="price-detail">모발 상태에 따라 상이</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">120,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">발레아쥬 / 옴브레</div>
+          <div class="price-detail">핸드 페인팅 기법</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">180,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">하이라이트</div>
+          <div class="price-detail">부분 / 전체 선택 가능</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">130,000~</div>
+      </div>
+    </div>
+
+    <div id="tab-perm" class="price-panel">
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">디지털펌</div>
+          <div class="price-detail">볼륨·C컬·S컬 선택</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">140,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">볼륨매직 (히트매직)</div>
+          <div class="price-detail">부드럽고 자연스러운 직모</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">160,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">시스테인 펌</div>
+          <div class="price-detail">저자극 · 손상 최소화</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">130,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">히피펌 / 뿌리펌</div>
+          <div class="price-detail">볼륨 Up & 자연 웨이브</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">100,000~</div>
+      </div>
+    </div>
+
+    <div id="tab-care" class="price-panel">
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">Kérastase 트리트먼트</div>
+          <div class="price-detail">모발 타입별 맞춤 처방</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">70,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">두피 스케일링</div>
+          <div class="price-detail">두피 분석 + 스케일링 포함</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">80,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">두피 앰풀 집중 케어</div>
+          <div class="price-detail">탈모 / 건성 / 지성 선택</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">120,000~</div>
+      </div>
+      <div class="price-row">
+        <div class="price-info">
+          <div class="price-name">VIP 풀 케어 패키지</div>
+          <div class="price-detail">커트 + 트리트먼트 + 두피 스파 + 음료</div>
+        </div>
+        <div class="price-dots"></div>
+        <div class="price-amount">250,000~</div>
+      </div>
+    </div>
+
+    <p class="price-note">
+      * 가격은 모발 길이·상태에 따라 달라질 수 있습니다. 정확한 견적은 방문 상담 후 안내드립니다.<br>
+      * 모든 시술은 사전 예약제로 운영되며, 당일 예약은 공석 발생 시에만 가능합니다.
+    </p>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" style="padding: 4rem 0 7rem;">
+    <div class="gallery-header">
+      <div class="section-label" style="justify-content:center;">
+        <span style="display:none;"></span>Gallery
+      </div>
+      <h2 class="section-title">우리의 <em>작품들</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600&q=80" alt="작품1" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80" alt="작품2" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="작품3" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="작품4" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="작품5" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1620331310968-c98c7a44ae3d?w=600&q=80" alt="작품6" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=80" alt="작품7" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrapper">
+      <!-- 위치 정보 -->
+      <div class="contact-info">
+        <div class="section-label" style="color:var(--gold);">Location & Reservation</div>
+        <h2 class="section-title">찾아오시는 길<br>& <em>예약 문의</em></h2>
+        <div class="divider"></div>
+        <p>편안하고 프라이빗한 공간에서 여러분을 기다립니다. 방문 전 예약을 권장드립니다.</p>
+
+        <ul class="info-list">
+          <li>
+            <span class="info-icon">◎</span>
+            <div>
+              <span class="info-label">주소</span>
+              서울특별시 강남구 청담동 123-4 메종에클라 빌딩 2F
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">◎</span>
+            <div>
+              <span class="info-label">영업시간</span>
+              화~토 10:00 – 20:00 &nbsp;|&nbsp; 일 10:00 – 18:00<br>
+              <span style="color:rgba(255,255,255,0.35); font-size:0.7rem;">월요일 정기 휴무</span>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">◎</span>
+            <div>
+              <span class="info-label">전화 / 카카오</span>
+              02-000-0000 &nbsp;|&nbsp; @maisoneclat
+            </div>
+          </li>
+          <li>
+            <span class="info-icon">◎</span>
+            <div>
+              <span class="info-label">주차</span>
+              건물 지하 1~2층 (2시간 무료)
+            </div>
+          </li>
+        </ul>
+
+        <div class="map-placeholder">
+          <div class="map-pin">📍</div>
+        </div>
+
+        <p style="font-size:0.65rem; color:rgba(255,255,255,0.25); letter-spacing:0.04em;">
+          지하철 7호선 청담역 3번 출구에서 도보 5분
+        </p>
+      </div>
+
+      <!-- 예약 폼 -->
+      <div>
+        <div class="section-label" style="color:var(--gold); margin-bottom:1.8rem;">온라인 예약 문의</div>
+        <form class="booking-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">이름</label>
+              <input type="text" class="form-input" placeholder="홍길동" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">연락처</label>
+              <input type="tel" class="form-input" placeholder="010-0000-0000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">희망 서비스</label>
+            <select class="form-select form-input">
+              <option value="">서비스를 선택해주세요</option>
+              <option>커트 & 스타일링</option>
+              <option>컬러링 / 탈색</option>
+              <option>하이라이트 / 발레아쥬</option>
+              <option>펌 (디지털펌 / 볼륨매직 등)</option>
+              <option>트리트먼트 & 두피 케어</option>
+              <option>업스타일 / 브라이덜</option>
+              <option>VIP 패키지</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">희망 날짜</label>
+              <input type="date" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">희망 시간</label>
+              <select class="form-select form-input">
+                <option>10:00</option><option>11:00</option><option>12:00</option>
+                <option>13:00</option><option>14:00</option><option>15:00</option>
+                <option>16:00</option><option>17:00</option><option>18:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">요청사항 (선택)</label>
+            <textarea class="form-textarea" placeholder="모발 상태나 원하시는 스타일을 간단히 적어주세요."></textarea>
+          </div>
+          <button type="submit" class="form-submit">예약 문의 보내기 →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Maison Éclat</span>
+    <p class="footer-tagline">Where Beauty Meets Elegance</p>
+    <ul class="footer-links">
+      <li><a href="#about">살롱 소개</a></li>
+      <li><a href="#services">서비스</a></li>
+      <li><a href="#pricing">가격표</a></li>
+      <li><a href="#contact">예약 문의</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Maison Éclat. All rights reserved. · 사업자등록번호 000-00-00000</p>
+  </footer>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.price-panel').forEach(p => p.classList.remove('active'));
+      document.querySelector(`#tab-${tab}`).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '문의가 접수되었습니다 ✓';
+      btn.style.background = '#6b9e7a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = '예약 문의 보내기 →';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Nav shrink on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.padding = window.scrollY > 60 ? '0.9rem 4rem' : '1.4rem 4rem';
+    });
+
+    // Intersection observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.service-card, .price-row, .gallery-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
